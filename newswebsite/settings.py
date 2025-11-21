@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -80,6 +81,7 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
+        'default': dj_database_url.config(conn_max_age=600)
     }
 }
 
@@ -119,7 +121,7 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = "static/"
-STATICFILES_DIRS=[
+STATICFILES_DIRS = [
     "static"
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
@@ -131,7 +133,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
-MEDIA_URL='/media/'
-MEDIA_ROOT=''
+MEDIA_URL = '/media/'
+MEDIA_ROOT = ''
 
-CRISPY_TEMPLATE_PACK='bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
