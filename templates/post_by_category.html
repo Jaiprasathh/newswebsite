@@ -1,0 +1,22 @@
+{% extends "main.html" %}
+{% block content %}
+<h1 class='my-4'>category-<span class='text-info'>{{category}}</span></h1>
+
+<div class="col-md-8 blog-main">
+        {% for article in articles %}
+        <div class="blog-post">
+          <h2><a href="article/{{article.slug}}">{{article.title}}</a></h2>
+          <p class="blog-post-meta">{{article.updated_at}} by <a href="#">{{article.author}}</a></p>
+
+          <p>{{article.short_description}}</p>
+          <p>{{article.detail_description}}</p>
+
+         
+          
+        </div>
+        {% endfor %}
+
+        <!-- /.blog-post -->
+
+      </div>
+{% endblock content %}
